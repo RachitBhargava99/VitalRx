@@ -1,0 +1,13 @@
+service: spindler
+runtime: python37
+entrypoint: gunicorn -t 86400 -b :$PORT run:app
+
+instance_class: F1
+
+env_variables:
+  PROJECT_ID: 'thinger'
+  DATA_BACKEND: 'cloudsql'
+  CLOUDSQL_USER: 'root'
+  CLOUDSQL_PASSWORD: ''
+  CLOUDSQL_DATABASE: 'spindler_sql'
+  CLOUDSQL_CONNECTION_NAME: 'thinger:us-east1:spindler'
